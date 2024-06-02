@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright (c) waresher 2024 (https://github.com/Leeterate) -->
+<title>SmartCalc</title>
+
+<meta name="description" content="SmartCalc">
+<meta name="keywords" content="SmartCalc">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="#Main" rel="next" title="Main">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">SmartCalc</h1>
+
+
+
+
+
+
+<div class="top" id="Top">
+<div class="header">
+<p>
+Next: <a href="#Main" accesskey="n" rel="next">Основное окно</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="SmartCalcPro-v2_002e0"></span><h1 class="top">SmartCalcPro v2.0</h1>
+<p>Copyright (c) waresher 2024 (https://github.com/Leeterate)
+</p>
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Osnovnoe-okno" href="#Main">1 Основное окно</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Chisla" href="#Chisla">1.1 Числа</a></li>
+    <li><a id="toc-Arifmeticheskie-operacii" href="#Arifmeticheskie-operacii">1.2 Арифметические операции</a></li>
+    <li><a id="toc-Funkcii" href="#Funkcii">1.3 Функции</a></li>
+  </ul></li>
+  <li><a id="toc-Postroenie-grafika-funkcii-po-vvedennomu-vyrazheniiu" href="#Graphic">2 Построение графика функций по введенному выражению</a></li>
+  <li><a id="toc-Kreditnyi-i-depozitnyi-rezhimy" href="#Credit">3 Кредитный и депозитный режимы</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter" id="Main">
+<div class="header">
+<p>
+Next: <a href="#Graphic" accesskey="n" rel="next">Построение графика функций по введенному выражению</a>, Previous: <a href="#Top" accesskey="p" rel="prev">SmartCalcPro v2.0</a>, Up: <a href="#Top" accesskey="u" rel="up">SmartCalcPro v2.0</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Osnovnoe-okno"></span><h2 class="chapter">1 Основное окно</h2>
+
+<p>В поле ввода необходимо ввести выражение, которое нужно посчитать. Максимальное количество символов - 255. Ввод символов осуществляется с клавиатуры или непосредственно в строке редактирования.
+Алгоритм главного окна блокирует большинство бессмысленных выражений, однако алгоритм вычислительной модели всё равно проводит дополнительную проверку строки ввода.
+Для очистки строки ввода используется кнопка &quot;АС&quot;, удаление произвольной части строки можно осуществить вручную.
+</p>
+
+<p>Результатом вывода может быть:
+</p><ol>
+<li> число - выражение корректное, результат вычисления;
+</li><li> &quot;текст ошибки&quot; - выражение некорректное, указывает в чем ошибка;
+</li><li> nan - результат вычисления &quot;нечисло&quot;;
+</li><li> inf - результат вычисления плюс бесконечность;
+</li><li> -inf - результат вычисления минус бесконечность.
+</li></ol>
+
+<ul class="section-toc">
+<li><a href="#Chisla" accesskey="1">Числа</a></li>
+<li><a href="#Arifmeticheskie-operacii" accesskey="2">Арифметические операции</a></li>
+<li><a href="#Funkcii" accesskey="3">Функции</a></li>
+</ul>
+<div class="section" id="Chisla">
+<h3 class="section">1.1 Числа</h3>
+<ul class="no-bullet">
+<li>* 0-9 - для записи чисел в поле ввода;
+</li><li>* x - кнопка &quot;x&quot; помещает переменную в основное поле ввода. Программа заменяет её на значение введённое в малое поле ввода справа от кнопки. Принимаются только значения с плавающей точкой двойной точности.
+</li><li>* e - числа в экспоненциальной записи имеют вид 6e+7 или 2e-3, калькулятор не воспринимает е в другом контекте и не будет возвращать его значение;
+</li></ul>
+</div>
+<div class="section" id="Arifmeticheskie-operacii">
+<h3 class="section">1.2 Арифметические операции</h3>
+<ul class="no-bullet">
+<li>* Скобки - выражение, заключенное в скобки, считается более приоритетным;
+</li><li>* Сложение - сумма двух операндов;
+</li><li>* Вычитание - разность двух операндов;
+</li><li>* Умножение - произведение двух операндов ;
+</li><li>* Деление - частное двух операндов;
+</li><li>* Возведение в степень - первый операнд в степени второй операнд;
+</li></ul>
+</div>
+<div class="section" id="Funkcii">
+<h3 class="section">1.3 Функции</h3>
+<ul class="no-bullet">
+<li>* cos(x) - вычисляет косинус числа x в радианах;
+</li><li>* sin(x) - вычисляет синус числа x в радианах;
+</li><li>* tan(x) - вычисляет тангенс числа x в радианах;
+</li><li>* acos(x) - вычисляет арккосинус числа x в радианах;
+</li><li>* asin(x) - вычисляет арксинус числа x в радианах;
+</li><li>* atan(x) - вычисляет арктангенс числа x в радианах;
+</li><li>* sqrt(x) - вычисляет квадратный корень из числа x;
+</li><li>* ln(x) - вычисляет натуральный логарифм числа x;
+</li><li>* log(x) - вычисляет десятичный логарифм числа x.
+</li><li>* mod(x) - вычисляет остаток от деления;
+</li></ul>
+
+<hr>
+</div>
+</div>
+<div class="chapter" id="Graphic">
+<div class="header">
+<p>
+Next: <a href="#Credit" accesskey="n" rel="next">Кредитный и депозитный режимы</a>, Previous: <a href="#Main" accesskey="p" rel="prev">Основное окно</a>, Up: <a href="#Top" accesskey="u" rel="up">SmartCalcPro v2.0</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Postroenie-grafika-funkcii-po-vvedennomu-vyrazheniiu"></span><h2 class="chapter">2 Построение графика функций по введенному выражению</h2>
+
+<p>Режим для построения графика функции открывается при нажатии кнопки &quot;function graph&quot;.
+Для того чтобы построить график функции необходимо в основной строке ввести выражение с параметром x (значения для х задаются в области определения).
+При возникновении ошибок будет выведено сообщение с текстом ошибки. Если максимальное значение координаты меньше или равно минимальному, оно автоматически увеличивается на 1.
+При построении графика значения x введённые вручную будут игнорироваться.
+</p>
+<hr>
+</div>
+<div class="chapter" id="Credit">
+<div class="header">
+<p>
+Previous: <a href="#Graphic" accesskey="p" rel="prev">Построение графика функций по введенному выражению</a>, Up: <a href="#Top" accesskey="u" rel="up">SmartCalcPro v2.0</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Kreditnyi-i-depozitnyi-rezhimy"></span><h2 class="chapter">3 Кредитный и депозитный режимы</h2>
+<p>Пока не реализованы
+</p>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
